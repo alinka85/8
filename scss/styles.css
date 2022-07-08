@@ -92,8 +92,8 @@ img {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vw;
-  background-color: aqua;
+  height: 100%;
+  background-color: var(--title-color);
   z-index: 999;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
@@ -104,11 +104,6 @@ img {
 }
 .form-mob .menu-btn {
   right: 10px;
-}
-@media (min-width: 768px) {
-  .form-mob .menu-btn {
-    display: none;
-  }
 }
 .form-mob .menu-mob {
   margin-top: 48px;
@@ -303,9 +298,6 @@ button {
 }
 
 .menu-btn {
-  /*@include for-tablet-up {
-    display: none;
-  }*/
   position: absolute;
   right: 22px;
   top: 22px;
@@ -316,6 +308,11 @@ button {
   border: 0;
   background-color: var(--title-color);
 }
+@media (min-width: 768px) {
+  .menu-btn {
+    display: none;
+  }
+}
 
 /*.icon-cross.is-open{
   display: none;
@@ -325,11 +322,6 @@ button {
   }
 
 }*/
-.menu-btn:hover .form-mob {
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-}
-
 @font-face {
   font-family: "Raleway";
   src: url(../fonts/Raleway-Bold.ttf) format("ttf");
@@ -395,10 +387,13 @@ header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+}
+@media (min-width: 768px) {
+  header .container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 @media (min-width: 1200px) {
   header .container {
@@ -412,7 +407,6 @@ header .container {
 
 .menu {
   display: none;
-  margin-right: 84px;
 }
 @media (min-width: 768px) {
   .menu {
@@ -470,11 +464,6 @@ header .container {
 @media (min-width: 768px) {
   .contact {
     display: block;
-    /*
-    margin-right: 0;
-    justify-content: center;
-    margin-left: auto;
-    }*/
   }
 }
 @media (min-width: 1200px) {
@@ -482,7 +471,7 @@ header .container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-right: 0;
+    margin-right: auto;
     margin-left: auto;
   }
 }
@@ -525,8 +514,17 @@ header .container {
 .contact__email-icon {
   width: 16px;
   height: 12px;
-  margin-right: 10px;
   fill: currentColor;
+}
+@media (min-width: 768px) {
+  .contact__email-icon {
+    margin-right: 8px;
+  }
+}
+@media (min-width: 1200px) {
+  .contact__email-icon {
+    margin-right: 10px;
+  }
 }
 .contact__tel-icon {
   width: 10px;
@@ -1137,9 +1135,6 @@ button {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
   }
 }
 
